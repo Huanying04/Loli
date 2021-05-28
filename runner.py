@@ -101,14 +101,14 @@ def run(lines, check_awake, check_sleep, loop_tab_amount):
                 if len(line_args) >= 7:
                     name1 = line[11:line.index(' with ')]
                     name2 = line[line.index(' with ') + 6:-1]
-                    value1 = 0
-                    if name1 in school_bag.out:
-                        value1 = school_bag.out[name1]
-                    else:
+                    value2 = 0
+                    if name1 not in school_bag.out:
                         error.print_error_msg(f'Error: {name1} is not in hand')
-                    if name2 not in school_bag.out:
+                    if name2 in school_bag.out:
+                        value2 = school_bag.out[name2]
+                    else:
                         error.print_error_msg(f'Error: {name2} is not in hand')
-                    school_bag.place_out(name2, value1)
+                    school_bag.place_out(name1, value2)
             elif not re.match("(Add ).*[^ ].*( and ).*[^ ].*( together into ).*[^ ].*", line) is None:  # Add
                 if len(line_args) >= 7:
                     add(line, 4)
