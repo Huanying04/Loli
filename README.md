@@ -109,19 +109,21 @@ Take lollipop
 Take strawberry
 
 Put chocolate into school bag
-Put X into school bag
+
+Go to school
 
 Take out chocolate from school bag
-Take out X from school bag
-
-Drop X out of lollipop
 
 Replace chocolate with strawberry
 Keep lollipop
-	Add chocolate and strawberry together into strawberry on the lollipop
-	Replace strawberry with strawberry on the lollipop
-	Eat strawberry on the lollipop
+	Add chocolate and strawberry together into strawberry on the chocolate
+	Replace strawberry with strawberry on the chocolate
+	Eat strawberry on the chocolate
+
+Drop chocolate out of strawberry
 Show strawberry
+
+Go home
 
 Sleep
 ```
