@@ -27,8 +27,8 @@ Loli屬於一種深奧的程式語言。主要是用於讓程式碼看起來像�
 * **Speak V** - 在螢幕上顯示變數V的儲存值。
 * **Show V** - 同上。
 * **Clearly speak V** - 在螢幕上顯示變數V的儲存值的int值。
-* **Simply show V** - 同上。
-* **Clearly speak V** - 同上。
+* **Simply speak V** - 同上。
+* **Clearly show V** - 同上。
 * **Simply show V** - 同上。
 * **Call V** - 在螢幕上顯示變數V的儲存值所對應的unicode字元。
 * **Have V** - 等待使用者輸入值，並且儲存進變數名稱為V。預設為已準備好。輸入值格式只能為float。
