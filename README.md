@@ -163,10 +163,10 @@ Put ca into school bag
 Take out ca from school bag
 
 Keep ou programming language
-	Show ou programming language
+	Clearly show ou programming language
 	Say " bottles of beer on the wall, "
 	
-	Show ou programming language
+	Clearly show ou programming language
 	Say " bottles of beer."
 	
 	Call ca
@@ -174,7 +174,7 @@ Keep ou programming language
 	Say "Take one down, pass it around, "
 	
 	Drop 1 from ou programming language
-	Show ou programming language
+	Clearly show ou programming language
 	Say " bottles of beer on the wall."
 	
 	Call ca
