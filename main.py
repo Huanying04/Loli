@@ -3,7 +3,7 @@ from os import path
 
 import runner
 
-version = '1.0.0'
+version = '1.0.1'
 
 
 def main(args):
@@ -29,4 +29,4 @@ if __name__ == '__main__':
     if len(sys.argv) >= 2:
         main(sys.argv[1:])
     else:
-        print('Loli ver.1.0.0.0\nby: 貓村幻影\nType "loli - ?" for more help')
+        print(f'Loli ver {version}\nby: 貓村幻影\nType "loli - ?" for more help')

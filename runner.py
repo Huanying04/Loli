@@ -170,45 +170,87 @@ def run(lines, check_awake, check_sleep, loop_tab_amount):
                     else:
                         value2 = school_bag.default_value(name2)
                     school_bag.place_out(name2, value2 - value1)
-            elif not re.match("(Slice ).*[^ ].*( into )[0-9]+( ).*[^ ].*( and take )[0-9]+", line) is None:  # Divide
+            elif not re.match("(Slice ).*[^ ].*( into ).*[^ ].*( ).*[^ ].*( and take ).*[^ ].*", line) is None:  # Divide
                 if len(line_args) >= 8:
                     name = line[6:line.index(' into ')]
-                    divide_name = float(line_args[line_args.index("into") + 1])
-                    having_name = float(line_args[-1])
-                    if having_name > divide_name:
+                    divide_name = line_args[line_args.index("into") + 1]
+                    having_name = line_args[-1]
+                    divide = 0.0
+                    having = 0.0
+                    if divide_name in school_bag.out:
+                        divide = school_bag.out[divide_name]
+                    elif is_number(divide_name):
+                        divide = float(divide_name)
+                    else:
+                        error.print_error_msg(f'Error: Loli don\'t know what {divide_name} means')
+                    if having_name in school_bag.out:
+                        having = school_bag.out[having_name]
+                    elif is_number(having_name):
+                        having = float(having_name)
+                    else:
+                        error.print_error_msg(f'Error: Loli don\'t know what {divide_name} means')
+                    if having > divide:
                         error.print_error_msg('Error: Loli can\'t take something is greater than its original is')
                     value = 0
                     if name in school_bag.out:
                         value = school_bag.out[name]
                     else:
                         error.print_error_msg(f'Error: {name} is not in hand')
-                    school_bag.out[name] = (value / divide_name) * having_name
-            elif not re.match("(Cut ).*[^ ].*( into )[0-9]+( ).*[^ ].*( and take )[0-9]+", line) is None:  # Divide
+                    school_bag.out[name] = (value / divide) * having
+            elif not re.match("(Cut ).*[^ ].*( into ).*[^ ].*( ).*[^ ].*( and take ).*[^ ].*", line) is None:  # Divide
                 if len(line_args) >= 8:
                     name = line[4:line.index(' into ')]
-                    divide_name = float(line_args[line_args.index("into") + 1])
-                    having_name = float(line_args[-1])
-                    if having_name > divide_name:
+                    divide_name = line_args[line_args.index("into") + 1]
+                    having_name = line_args[-1]
+                    divide = 0.0
+                    having = 0.0
+                    if divide_name in school_bag.out:
+                        divide = school_bag.out[divide_name]
+                    elif is_number(divide_name):
+                        divide = float(divide_name)
+                    else:
+                        error.print_error_msg(f'Error: Loli don\'t know what {divide_name} means')
+                    if having_name in school_bag.out:
+                        having = school_bag.out[having_name]
+                    elif is_number(having_name):
+                        having = float(having_name)
+                    else:
+                        error.print_error_msg(f'Error: Loli don\'t know what {divide_name} means')
+                    if having > divide:
                         error.print_error_msg('Error: Loli can\'t take something is greater than its original is')
-                    value = 0.0
+                    value = 0
                     if name in school_bag.out:
                         value = school_bag.out[name]
                     else:
                         error.print_error_msg(f'Error: {name} is not in hand')
-                    school_bag.out[name] = (value / divide_name) * having_name
-            elif not re.match("(Split ).*[^ ].*( into )[0-9]+( ).*[^ ].*( and take )[0-9]+", line) is None:  # Divide
+                    school_bag.out[name] = (value / divide) * having
+            elif not re.match("(Split ).*[^ ].*( into ).*[^ ].*( ).*[^ ].*( and take ).*[^ ].*", line) is None:  # Divide
                 if len(line_args) >= 8:
                     name = line[6:line.index(' into ')]
-                    divide_name = float(line_args[line_args.index("into") + 1])
-                    having_name = float(line_args[-1])
-                    if having_name > divide_name:
+                    divide_name = line_args[line_args.index("into") + 1]
+                    having_name = line_args[-1]
+                    divide = 0.0
+                    having = 0.0
+                    if divide_name in school_bag.out:
+                        divide = school_bag.out[divide_name]
+                    elif is_number(divide_name):
+                        divide = float(divide_name)
+                    else:
+                        error.print_error_msg(f'Error: Loli don\'t know what {divide_name} means')
+                    if having_name in school_bag.out:
+                        having = school_bag.out[having_name]
+                    elif is_number(having_name):
+                        having = float(having_name)
+                    else:
+                        error.print_error_msg(f'Error: Loli don\'t know what {divide_name} means')
+                    if having > divide:
                         error.print_error_msg('Error: Loli can\'t take something is greater than its original is')
-                    value = 0.0
+                    value = 0
                     if name in school_bag.out:
                         value = school_bag.out[name]
                     else:
                         error.print_error_msg(f'Error: {name} is not in hand')
-                    school_bag.out[name] = (value / divide_name) * having_name
+                    school_bag.out[name] = (value / divide) * having
             elif not re.match("(Keep ).*[^ ].*", line) is None:  # While var is not 0, it loops
                 var = 0
                 if line[5:-1] in school_bag.out:
@@ -254,3 +296,11 @@ def add(line, start_index):
     else:
         value2 = school_bag.default_value(name2)
     school_bag.take(name3, value1 + value2)
+
+
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
