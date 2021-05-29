@@ -162,6 +162,9 @@ Take out 1 from school bag
 Put ca into school bag
 Take out ca from school bag
 
+Put whatever into school bag
+Take out whatever from school bag
+
 Keep ou programming language
 	Clearly show ou programming language
 	Say " bottles of beer on the wall, "
@@ -179,6 +182,10 @@ Keep ou programming language
 	
 	Call ca
 	Call ca
+	
+	Replace whatever with ou programming language
+	Dump ou programming language
+	Add 1 and whatever together into ou programming language
 
 Sleep
 ```
