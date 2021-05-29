@@ -149,6 +149,40 @@ Clearly show input
 Sleep
 ```
 
+## 費氏數列
+```loli
+Awake
+
+Take purse
+
+Put $ into school bag
+Take out $ from school bag
+
+Put % into school bag
+Take out % from school bag
+
+Put Mif into school bag
+Take out Mif from school bag
+
+Drop $ out of purse
+Drop % out of purse
+
+Clearly show $
+Call Mif
+Clearly show %
+Call Mif
+
+Keep purse
+	Add $ and % together into delicious thing
+	Replace $ with %
+	Replace % with delicious thing
+	Clearly show delicious thing
+	Eat delicious thing
+	Call Mif
+
+Sleep
+```
+
 ## 99 Bottles of Beer
 ```loli
 Awake
@@ -186,6 +220,15 @@ Keep ou programming language
 	Replace whatever with ou programming language
 	Dump ou programming language
 	Add 1 and whatever together into ou programming language
+
+Sleep
+```
+
+## 被FBI抓走(FBIError)
+```loli
+Awake
+
+Be fucked
 
 Sleep
 ```
