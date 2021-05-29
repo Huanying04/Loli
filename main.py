@@ -3,13 +3,13 @@ from os import path
 
 import runner
 
-version = '1.0.1'
+version = '1.1.0'
 
 
 def main(args):
     if args[0] == '-file' or args[0] == '-f':
         if path.exists(args[1]):
-            runner.run(runner.read(args[1]), True, False, 1)
+            runner.run(runner.read(args[1]), True, False, 0)
         else:
             print('The file is not exist')
     elif args[0] == '-?' or args[0] == '-help':

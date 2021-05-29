@@ -1,17 +1,17 @@
 import re
 import sys
+
+import keep_loop
 import output
 import shlex
 import school_bag
 import error
 
 
-def run(lines, check_awake, check_sleep, loop_tab_amount):
+def run(lines, check_awake, check_sleep, loop_amount):
 
     awake = False
     place = 'Home'
-
-    loop = [[]]
 
     for index in range(0, len(lines)):
         line = lines[index]
@@ -252,23 +252,34 @@ def run(lines, check_awake, check_sleep, loop_tab_amount):
                         error.print_error_msg(f'Error: {name} is not in hand')
                     school_bag.out[name] = (value / divide) * having
             elif not re.match("(Keep ).*[^ ].*", line) is None:  # While var is not 0, it loops
-                var = 0
-                if line[5:-1] in school_bag.out:
-                    var = school_bag.out[line[5:-1]]
-                else:
+                if loop_amount == len(keep_loop.keep):
+                    keep_loop.append()
+                if loop_amount == len(keep_loop.keep_var):
+                    keep_loop.keep_var.append(None)
+                if loop_amount == len(keep_loop.keep_original_var):
+                    keep_loop.keep_original_var.append(None)
+                if line[5:-1] in school_bag.out and keep_loop.keep_var[loop_amount] is None and \
+                        keep_loop.keep_original_var[loop_amount] is None:
+                    keep_loop.keep_var[loop_amount] = school_bag.out[line[5:-1]]
+                    keep_loop.keep_original_var[loop_amount] = keep_loop.keep_var[loop_amount]
+                    for i in range(index, len(lines)):
+                        line_in_keep = lines[i]
+                        if line_in_keep.startswith('\t'):
+                            keep_loop.new_loop(line_in_keep[1:], loop_amount)
+                elif line[5:-1] not in school_bag.out:
                     error.print_error_msg(f'Error: {line[5:-1]} is not in hand')
 
-                tabs = ''
-                for i in range(0, loop_tab_amount):
-                    tabs += '\t'
-
-                for i in range(index, len(lines)):
-                    line_in_keep = lines[i]
-                    if line_in_keep.startswith(tabs):
-                        loop[loop_tab_amount-1].append(line_in_keep[loop_tab_amount:])
-                while var != 0:
-                    run(loop[loop_tab_amount-1], False, False, loop_tab_amount + 1)
-                    var = var - 1
+                while keep_loop.keep_var[loop_amount] != 0:
+                    run(keep_loop.keep[loop_amount], False, False, loop_amount + 1)
+                    keep_loop.keep_var[loop_amount] -= 1
+                    school_bag.out[line[5:-1]] = keep_loop.keep_var[loop_amount]
+                if loop_amount > 0:
+                    if keep_loop.keep_var[loop_amount - 1] > keep_loop.keep_var[loop_amount]:
+                        keep_loop.keep_var[loop_amount] = keep_loop.keep_original_var[loop_amount]
+                if loop_amount == 0:
+                    keep_loop.keep.clear()
+                    keep_loop.keep_var.clear()
+                    keep_loop.keep_original_var.clear()
             else:
                 continue
             line_args.clear()

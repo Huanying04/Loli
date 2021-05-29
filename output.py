@@ -8,4 +8,6 @@ def escape(pattern: str):
         .replace('\\t', '\t')\
         .replace('\\b', '\b')\
         .replace('\\0', '\0')\
-        .replace('\\\\', '\\')
+        .replace('\\\\', '\\')\
+        .replace('\\\'', '\'')\
+        .replace('\\"', '"')
