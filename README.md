@@ -132,13 +132,13 @@ Sleep
 ```loli
 Awake
 
-Put b into school bag
-Take out b from school bag
+Put c into school bag
+Take out c from school bag
 
 Take input
 
 Slice input into 2 parts and take 1
-Add b and input together into whatever
+Add c and input together into whatever
 
 Keep input
 	Clearly show input
