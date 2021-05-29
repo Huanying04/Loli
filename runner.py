@@ -262,10 +262,12 @@ def run(lines, check_awake, check_sleep, loop_amount):
                         keep_loop.keep_original_var[loop_amount] is None:
                     keep_loop.keep_var[loop_amount] = school_bag.out[line[5:-1]]
                     keep_loop.keep_original_var[loop_amount] = keep_loop.keep_var[loop_amount]
-                    for i in range(index, len(lines)):
+                    for i in range(index + 1, len(lines)):
                         line_in_keep = lines[i]
                         if line_in_keep.startswith('\t'):
                             keep_loop.new_loop(line_in_keep[1:], loop_amount)
+                        else:
+                            break
                 elif line[5:-1] not in school_bag.out:
                     error.print_error_msg(f'Error: {line[5:-1]} is not in hand')
 

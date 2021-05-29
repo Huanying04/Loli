@@ -3,7 +3,7 @@ from os import path
 
 import runner
 
-version = '1.1.1'
+version = '1.1.2'
 
 
 def main(args):
