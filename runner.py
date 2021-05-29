@@ -271,8 +271,8 @@ def run(lines, check_awake, check_sleep, loop_amount):
 
                 while keep_loop.keep_var[loop_amount] != 0:
                     run(keep_loop.keep[loop_amount], False, False, loop_amount + 1)
-                    keep_loop.keep_var[loop_amount] -= 1
-                    school_bag.out[line[5:-1]] = keep_loop.keep_var[loop_amount]
+                    school_bag.out[line[5:-1]] -= 1
+                    keep_loop.keep_var[loop_amount] = school_bag.out[line[5:-1]]
                 if loop_amount > 0:
                     if keep_loop.keep_var[loop_amount - 1] > keep_loop.keep_var[loop_amount]:
                         keep_loop.keep_var[loop_amount] = keep_loop.keep_original_var[loop_amount]
