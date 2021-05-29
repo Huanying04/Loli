@@ -1,3 +1,5 @@
+<img align="right" src="https://user-images.githubusercontent.com/59917505/120065193-a1664080-c0a2-11eb-8e9e-394b8d2e4800.png" height="200" width="200">
+
 # Loli
 Loli屬於一種深奧的程式語言。主要是用於讓程式碼看起來像是蘿莉的一天，或日常、日記等。
 
@@ -100,7 +102,7 @@ Shower
 Sleep
 ```
 
-## 乘法
+## 非負整數乘法
 由於Loli不自帶乘法，因此必須使用額外方式完成。
 ```loli
 Awake
@@ -132,19 +134,53 @@ Sleep
 ```loli
 Awake
 
-Put b into school bag
-Take out b from school bag
+Put c into school bag
+Take out c from school bag
 
 Take input
 
 Slice input into 2 parts and take 1
-Add b and input together into whatever
+Add c and input together into whatever
 
 Keep input
 	Clearly show input
 	Replace input with whatever
 
 Clearly show input
+
+Sleep
+```
+
+## 費氏數列
+```loli
+Awake
+
+Take purse
+
+Put $ into school bag
+Take out $ from school bag
+
+Put % into school bag
+Take out % from school bag
+
+Put Mif into school bag
+Take out Mif from school bag
+
+Drop $ out of purse
+Drop % out of purse
+
+Clearly show $
+Call Mif
+Clearly show %
+Call Mif
+
+Keep purse
+	Add $ and % together into delicious thing
+	Replace $ with %
+	Replace % with delicious thing
+	Clearly show delicious thing
+	Eat delicious thing
+	Call Mif
 
 Sleep
 ```
@@ -161,6 +197,9 @@ Take out 1 from school bag
 
 Put ca into school bag
 Take out ca from school bag
+
+Put whatever into school bag
+Take out whatever from school bag
 
 Keep ou programming language
 	Clearly show ou programming language
@@ -179,6 +218,19 @@ Keep ou programming language
 	
 	Call ca
 	Call ca
+	
+	Replace whatever with ou programming language
+	Dump ou programming language
+	Add 1 and whatever together into ou programming language
+
+Sleep
+```
+
+## 被FBI抓走(FBIError)
+```loli
+Awake
+
+Be fucked
 
 Sleep
 ```
