@@ -1,6 +1,8 @@
 # Loli
 Loli屬於一種深奧的程式語言。主要是用於讓程式碼看起來像是蘿莉的一天，或日常、日記等。
 
+<img align="right" src="![icon](https://user-images.githubusercontent.com/59917505/120065075-11c09200-c0a2-11eb-85df-8e2b8b6062c9.png)" height="200" width="200">
+
 # 語法/指令
 * **Awake** - 醒來。每個程式的第一行都必須寫上。不然就會拋出錯誤。
 * **Sleep** - 睡覺。讀到這行程式就會直接結束。若是整個原始碼都沒包含這一行的話會顯示提醒，但不會拋出錯誤。
