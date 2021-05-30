@@ -48,7 +48,7 @@ Loli屬於一種深奧的程式語言。主要是用於讓程式碼看起來像�
 * **Take V1 out of V2** - 從V2拿出V1。將V2的儲存值減去V1，相當於`V2 = V2 - V1`。
 * **Drop V1 out of V2** - 從V2弄掉V1。功能同上。
 * **Drop V1 from V2** - 從V2弄掉V1。功能同上。
-* ~~**Give out V1 from V2** - 從V2拿出V1給別人。功能同上。~~
+* **Give out V1 from V2** - 從V2拿出V1給別人。功能同上。
 * **Slice V1 into N1 C and take N2** - 將V1切N1塊並取走其中N2塊。N1和N2為固定數字也可為變數，C為任意量詞。
 * **Cut V1 into N1 C and take N2** - 同上。
 * **Split V1 into N1 C and take N2** - 同上。
@@ -121,6 +121,7 @@ Keep lollipop
 	Add chocolate and strawberry together into strawberry on the chocolate
 	Replace strawberry with strawberry on the chocolate
 	Eat strawberry on the chocolate
+	Drop 1 from lollipop
 
 Drop chocolate out of strawberry
 Show strawberry
@@ -134,13 +135,13 @@ Sleep
 ```loli
 Awake
 
-Put c into school bag
-Take out c from school bag
+Put b into school bag
+Take out b from school bag
 
 Take input
 
 Slice input into 2 parts and take 1
-Add c and input together into whatever
+Add b and input together into whatever
 
 Keep input
 	Clearly show input
@@ -181,6 +182,66 @@ Keep purse
 	Clearly show delicious thing
 	Eat delicious thing
 	Call Mif
+	Drop 1 from purse
+
+Sleep
+```
+
+## [Disan Count](https://esolangs.org/wiki/Disan_Count )
+```loli
+Awake
+
+Take book
+
+Put zero into school bag
+Take out zero from school bag
+Drop zero from zero
+
+Put chocolate into school bag
+Take out chocolate from school bag
+Replace chocolate with book
+Drop chocolate from zero
+Replace chocolate with zero
+Add zero and book together into another book
+Replace zero with another book
+Dump another book
+
+Put b into school bag
+Take out b from school bag
+
+Put cake into school bag
+Take out cake from school bag
+Replace cake with b
+
+Keep chocolate
+	Add chocolate and book together into chocolate book
+	
+	Put strawberry book into school bag
+	Take out strawberry book from school bag
+	Replace strawberry book with chocolate book
+	
+	Keep chocolate book
+		Slice cake into b parts and take -1
+		Drop b from chocolate book
+	
+	Add cake and b together into blueberry cake
+	Replace cake with blueberry cake
+	Eat blueberry cake
+	
+	Keep cake
+		Clearly show strawberry book
+		Say " is even!"
+		Drop b from cake
+		Drop b from cake
+	
+	Replace cake with b
+	
+	Add chocolate and b together into blueberry chocolate
+	Replace chocolate with blueberry chocolate
+	Eat blueberry chocolate
+	
+	Eat chocolate book
+	Eat strawberry book
 
 Sleep
 ```
@@ -218,10 +279,6 @@ Keep ou programming language
 	
 	Call ca
 	Call ca
-	
-	Replace whatever with ou programming language
-	Dump ou programming language
-	Add 1 and whatever together into ou programming language
 
 Sleep
 ```

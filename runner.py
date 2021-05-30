@@ -55,6 +55,19 @@ def run(lines, check_awake, check_sleep, loop_amount):
             elif not re.match("(Have ).+", line) is None:  # Input value
                 if len(line_args) >= 2:
                     school_bag.take(line[5:-1], input())
+            elif not re.match("(Take ).*[^ ].*( out of ).*[^ ].*", line) is None:  # Subtract
+                if len(line_args) >= 5:
+                    name1 = line[5:line.index(' out of ')]
+                    name2 = line[line.index(' out of ') + 8:-1]
+                    if name1 in school_bag.out:
+                        value1 = school_bag.out[name1]
+                    else:
+                        value1 = school_bag.default_value(name1)
+                    if name2 in school_bag.out:
+                        value2 = school_bag.out[name2]
+                    else:
+                        value2 = school_bag.default_value(name2)
+                    school_bag.place_out(name2, value2 - value1)
             elif not re.match("(Take ).+", line) is None:  # Input value
                 if len(line_args) >= 2:
                     school_bag.take(line[5:-1], input())
@@ -118,19 +131,6 @@ def run(lines, check_awake, check_sleep, loop_amount):
             elif not re.match("(Put ).*[^ ].*( and ).*[^ ].*( together into ).*[^ ].*", line) is None:  # Add
                 if len(line_args) >= 7:
                     add(line, 4)
-            elif not re.match("(Take ).*[^ ].*( out of ).*[^ ].*", line) is None:  # Subtract
-                if len(line_args) >= 5:
-                    name1 = line[5:line.index(' out of ')]
-                    name2 = line[line.index(' out of ') + 8:-1]
-                    if name1 in school_bag.out:
-                        value1 = school_bag.out[name1]
-                    else:
-                        value1 = school_bag.default_value(name1)
-                    if name2 in school_bag.out:
-                        value2 = school_bag.out[name2]
-                    else:
-                        value2 = school_bag.default_value(name2)
-                    school_bag.place_out(name2, value2 - value1)
             elif not re.match("(Drop ).*[^ ].*( out of ).*[^ ].*", line) is None:  # Subtract
                 if len(line_args) >= 4:
                     name1 = line[5:line.index(' out of ')]
@@ -224,7 +224,8 @@ def run(lines, check_awake, check_sleep, loop_amount):
                     else:
                         error.print_error_msg(f'Error: {name} is not in hand')
                     school_bag.out[name] = (value / divide) * having
-            elif not re.match("(Split ).*[^ ].*( into ).*[^ ].*( ).*[^ ].*( and take ).*[^ ].*", line) is None:  # Divide
+            elif not re.match("(Split ).*[^ ].*( into ).*[^ ].*( ).*[^ ].*( and take ).*[^ ].*", line) is None:
+                # Divide
                 if len(line_args) >= 8:
                     name = line[6:line.index(' into ')]
                     divide_name = line_args[line_args.index("into") + 1]
@@ -256,12 +257,8 @@ def run(lines, check_awake, check_sleep, loop_amount):
                     keep_loop.append()
                 if loop_amount == len(keep_loop.keep_var):
                     keep_loop.keep_var.append(None)
-                if loop_amount == len(keep_loop.keep_original_var):
-                    keep_loop.keep_original_var.append(None)
-                if line[5:-1] in school_bag.out and keep_loop.keep_var[loop_amount] is None and \
-                        keep_loop.keep_original_var[loop_amount] is None:
+                if line[5:-1] in school_bag.out and keep_loop.keep_var[loop_amount] is None:
                     keep_loop.keep_var[loop_amount] = school_bag.out[line[5:-1]]
-                    keep_loop.keep_original_var[loop_amount] = keep_loop.keep_var[loop_amount]
                     for i in range(index + 1, len(lines)):
                         line_in_keep = lines[i]
                         if line_in_keep.startswith('\t'):
@@ -273,15 +270,9 @@ def run(lines, check_awake, check_sleep, loop_amount):
 
                 while keep_loop.keep_var[loop_amount] != 0:
                     run(keep_loop.keep[loop_amount], False, False, loop_amount + 1)
-                    school_bag.out[line[5:-1]] -= 1
                     keep_loop.keep_var[loop_amount] = school_bag.out[line[5:-1]]
-                if loop_amount > 0:
-                    if keep_loop.keep_var[loop_amount - 1] > keep_loop.keep_var[loop_amount]:
-                        keep_loop.keep_var[loop_amount] = keep_loop.keep_original_var[loop_amount]
-                if loop_amount == 0:
-                    keep_loop.keep.clear()
-                    keep_loop.keep_var.clear()
-                    keep_loop.keep_original_var.clear()
+                del keep_loop.keep[loop_amount]
+                del keep_loop.keep_var[loop_amount]
             else:
                 continue
             line_args.clear()

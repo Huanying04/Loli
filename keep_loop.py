@@ -4,9 +4,6 @@ keep = []
 keep_var = []
 
 
-keep_original_var = []
-
-
 def append():
     keep.append([])
 
