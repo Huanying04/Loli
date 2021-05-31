@@ -122,15 +122,60 @@ def run(lines, check_awake, check_sleep, loop_amount):
                     else:
                         error.print_error_msg(f'Error: {name2} is not in hand')
                     school_bag.place_out(name1, value2)
+            elif not re.match("(Add ).*[^ ].*( to ).*[^ ].*", line) is None:  # Add
+                if len(line_args) >= 4:
+                    name1 = line[4:line.index(' to ')]
+                    name2 = line[line.index(' to ') + 4:-1]
+                    if name1 in school_bag.out:
+                        value1 = school_bag.out[name1]
+                    else:
+                        value1 = school_bag.default_value(name1)
+                    if name2 in school_bag.out:
+                        school_bag.out[name2] += value1
+                    else:
+                        error.print_error_msg(f'Error: {name2} is not in hand')
             elif not re.match("(Add ).*[^ ].*( and ).*[^ ].*( together into ).*[^ ].*", line) is None:  # Add
                 if len(line_args) >= 7:
-                    add(line, 4)
+                    name1 = line[4:line.index(' and ')]
+                    name2 = line[line.index(' and ') + 5:line.index(' together into ')]
+                    name3 = line[line.index(' together into ') + 15:-1]
+                    if name1 in school_bag.out:
+                        value1 = school_bag.out[name1]
+                    else:
+                        value1 = school_bag.default_value(name1)
+                    if name2 in school_bag.out:
+                        value2 = school_bag.out[name2]
+                    else:
+                        value2 = school_bag.default_value(name2)
+                    school_bag.take(name3, value1 + value2)
             elif not re.match("(Mix ).*[^ ].*( and ).*[^ ].*( together into ).*[^ ].*", line) is None:  # Add
                 if len(line_args) >= 7:
-                    add(line, 4)
+                    name1 = line[4:line.index(' and ')]
+                    name2 = line[line.index(' and ') + 5:line.index(' together into ')]
+                    name3 = line[line.index(' together into ') + 15:-1]
+                    if name1 in school_bag.out:
+                        value1 = school_bag.out[name1]
+                    else:
+                        value1 = school_bag.default_value(name1)
+                    if name2 in school_bag.out:
+                        value2 = school_bag.out[name2]
+                    else:
+                        value2 = school_bag.default_value(name2)
+                    school_bag.take(name3, value1 + value2)
             elif not re.match("(Put ).*[^ ].*( and ).*[^ ].*( together into ).*[^ ].*", line) is None:  # Add
                 if len(line_args) >= 7:
-                    add(line, 4)
+                    name1 = line[4:line.index(' and ')]
+                    name2 = line[line.index(' and ') + 5:line.index(' together into ')]
+                    name3 = line[line.index(' together into ') + 15:-1]
+                    if name1 in school_bag.out:
+                        value1 = school_bag.out[name1]
+                    else:
+                        value1 = school_bag.default_value(name1)
+                    if name2 in school_bag.out:
+                        value2 = school_bag.out[name2]
+                    else:
+                        value2 = school_bag.default_value(name2)
+                    school_bag.take(name3, value1 + value2)
             elif not re.match("(Drop ).*[^ ].*( out of ).*[^ ].*", line) is None:  # Subtract
                 if len(line_args) >= 4:
                     name1 = line[5:line.index(' out of ')]
@@ -285,21 +330,6 @@ def run(lines, check_awake, check_sleep, loop_amount):
 def read(filepath):
     file = open(filepath, encoding="utf-8")
     return file.readlines()
-
-
-def add(line, start_index):
-    name1 = line[start_index:line.index(' and ')]
-    name2 = line[line.index(' and ') + 5:line.index(' together into ')]
-    name3 = line[line.index(' together into ') + 15:-1]
-    if name1 in school_bag.out:
-        value1 = school_bag.out[name1]
-    else:
-        value1 = school_bag.default_value(name1)
-    if name2 in school_bag.out:
-        value2 = school_bag.out[name2]
-    else:
-        value2 = school_bag.default_value(name2)
-    school_bag.take(name3, value1 + value2)
 
 
 def is_number(s):

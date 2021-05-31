@@ -64,11 +64,14 @@ def take(name, value):
         place_out(name, value)
 
 
-def place_out(name, value):
-    if is_number(value):
-        out[name] = float(value)
+def place_out(name, input_value):
+    if is_number(input_value):
+        out[name] = float(input_value)
     else:
-        error.print_error_msg('Error: You can only input number')
+        i = 0
+        for char in input_value:
+            i += ord(char)
+        out[name] = i
 
 
 value_table = {
