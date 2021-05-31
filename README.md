@@ -33,7 +33,7 @@ Loli屬於一種深奧的程式語言。主要是用於讓程式碼看起來像�
 * **Clearly show V** - 同上。
 * **Simply show V** - 同上。
 * **Call V** - 在螢幕上顯示變數V的儲存值所對應的unicode字元。
-* **Have V** - 等待使用者輸入值，並且儲存進變數名稱為V。預設為已準備好。輸入值格式只能為float。
+* **Have V** - 等待使用者輸入值，並且儲存進變數名稱為V。預設為已準備好。輸入值格式若不是float時，則將每個字元的Unicode值相加儲存。
 * **Take V** - 同上。
 * **Go to P** - 前往地點P。P可為任意字串。但程式結束執行時，地點必須為`Home`，大小寫不敏感。
 * **Go P** - 同上。
@@ -42,6 +42,7 @@ Loli屬於一種深奧的程式語言。主要是用於讓程式碼看起來像�
 * **Drink V** - 喝掉V。功能同上。
 * **Replace V1 with V2** - 用V2取代V1。相當於`V1 = V2`。
 * **Throw away V1 and replace with V2** - 同上。
+* **Add V1 to V2** - 把A加進B裡。相當於`V2 = V2 + V1`。
 * **Add A and B together into C** - 把A和B加在一起變成C。創建C變數，其值為A的儲存值+B的儲存值。若是C已存在則拋出錯誤。
 * **Mix A and B together into C** - 把A和B攪拌加在一起變成C。功能同上。
 * **Put A and B together into C** - 把A和B放加在一起變成C。功能同上。
@@ -127,6 +128,50 @@ Drop chocolate out of strawberry
 Show strawberry
 
 Go home
+
+Sleep
+```
+
+## 計算機
+可計算四則運算
+```loli
+Awake
+
+Take paper
+Take pigment
+Take fragment
+
+Put H water into school bag
+Take out H water from school bag
+
+Put folder into school bag
+Take out folder from school bag
+Drop folder from folder
+Drop H water from folder
+Replace H water with folder
+Drop H water from folder
+
+Add H water to pigment
+
+Keep pigment
+	Drop 1 from pigment
+	Keep pigment
+		Drop bb from pigment
+		Keep pigment
+			Cut paper into fragment shape and take 1
+			Show paper
+			Sleep
+		Drop fragment from paper
+		Show paper
+		Sleep
+	Add paper to fragment
+	Show fragment
+	Sleep
+
+Keep fragment
+	Add paper to folder
+	Drop 1 from fragment
+Show folder
 
 Sleep
 ```
