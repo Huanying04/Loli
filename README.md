@@ -49,10 +49,10 @@ Loli屬於一種深奧的程式語言。主要是用於讓程式碼看起來像�
 * **Drop V1 out of V2** - 從V2弄掉V1。功能同上。
 * **Drop V1 from V2** - 從V2弄掉V1。功能同上。
 * **Give out V1 from V2** - 從V2拿出V1給別人。功能同上。
-* **Slice V1 into N1 C and take N2** - 將V1切N1塊並取走其中N2塊。N1和N2為固定數字也可為變數，C為任意量詞。
+* **Slice V1 into N1 C and take N2** - 將V1切N1塊並取走其中N2塊。N1和N2為固定數字也可為變數，C為任意量詞，另外N2不得大於N1。
 * **Cut V1 into N1 C and take N2** - 同上。
 * **Split V1 into N1 C and take N2** - 同上。
-* **Keep V** - 當V不等於0時，重複Keep下述部分並將V減去1，直到V=0時結束執行。Keep下述每行都必須空Keep之後一個Tab，包含空白行。
+* **Keep V** - 當V不等於0時，重複Keep下述部分，直到V=0時結束執行。Keep下述每行都必須空Keep之後一個Tab，包含空白行。
 * **Fuck** - 當程式讀到某行含fuck字樣的時候，直接拋出錯誤。原因很簡單，因為你不能X蘿莉。
 
 其餘未寫在上面的指令都不會執行，因此你可以在原始碼裡隨意放上無關的字樣也無所謂。
