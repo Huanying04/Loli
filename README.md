@@ -141,17 +141,17 @@ Take paper
 Take pigment
 Take fragment
 
-Put H water into school bag
-Take out H water from school bag
+Put uwu water into school bag
+Take out uwu water from school bag
 
 Put folder into school bag
 Take out folder from school bag
 Drop folder from folder
-Drop H water from folder
-Replace H water with folder
-Drop H water from folder
+Drop uwu water from folder
+Replace uwu water with folder
+Drop uwu water from folder
 
-Add H water to pigment
+Add uwu water to pigment
 
 Keep pigment
 	Drop 1 from pigment
