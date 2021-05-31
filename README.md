@@ -119,9 +119,7 @@ Take out chocolate from school bag
 
 Replace chocolate with strawberry
 Keep lollipop
-	Add chocolate and strawberry together into strawberry on the chocolate
-	Replace strawberry with strawberry on the chocolate
-	Eat strawberry on the chocolate
+	Add chocolate to strawberry
 	Drop 1 from lollipop
 
 Drop chocolate out of strawberry
